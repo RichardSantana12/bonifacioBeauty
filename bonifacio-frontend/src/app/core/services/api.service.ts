@@ -66,7 +66,8 @@ export class ApiService {
 
   private buildApiUrl(): string {
     const host = window.location.hostname || 'localhost';
-    return `http://${host}:3000/api`;
+    const protocol = window.location.protocol || 'http:';
+    return `${protocol}//${host}/api`;
   }
 
   // Servicios
@@ -111,7 +112,7 @@ export class ApiService {
   }
 
   // Parámetros
-  getParametros(grupo?: number, clave?: string): Observable<Parametro[]> {
+  getParametros(grupo?: string, clave?: string): Observable<Parametro[]> {
     const params: any = {};
     if (grupo) params.grupo = grupo;
     if (clave) params.clave = clave;

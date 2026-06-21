@@ -52,7 +52,7 @@ export class InicioComponent implements OnInit {
   }
 
   loadNosotrosText() {
-    this.apiService.getParametros(1, 'nosotros').subscribe({
+    this.apiService.getParametros('nosotros', 'nosotros_descripcion').subscribe({
       next: (parametros) => {
         if (parametros && parametros.length > 0) {
           this.nosotrosText = parametros[0].valor1;
